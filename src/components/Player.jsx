@@ -1,12 +1,25 @@
-import Player from './components/Player.jsx';
+import { useState } from 'react';
 
-function App() {
+export default function Player() {
+
+  const [enteredPlayerName, setEnteredPlayerName] = useState('');
+  const [submitted, setSubmitted] = useState('');
+
+  function handleChange(event) {
+    setEnteredPlayerName(event.target.value);
+  }
+
+  function handleClick() {
+    setSubmitted(true);
+  }
+
   return (
-    <>
-      <Player />
-      <div id="challenges"></div>
-    </>
+    <section id="player">
+      <h2>Welcome {submitted ? enteredPlayerName : 'unknown entity'}</h2>
+      <p>
+        <input onChange={handleChange} value={enteredPlayerName} type="text" />
+        <button onClick={handleClick}>Set Name</button>
+      </p>
+    </section>
   );
 }
-
-export default App;
