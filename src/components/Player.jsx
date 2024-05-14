@@ -7,6 +7,9 @@ export default function Player() {
 
   function handleClick() {
     setEnteredPlayerName(playerName.current.value);
+    // imperative code: instructs the browser to set the value of the input to an emptu string
+    playerName.current.value = ''; 
+
   }
 
   return (
